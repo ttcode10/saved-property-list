@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/saved-property-list/static/css/main.ab7136cd.chunk.css",
+    "main.js": "/saved-property-list/static/js/main.9e971ea4.chunk.js",
+    "main.js.map": "/saved-property-list/static/js/main.9e971ea4.chunk.js.map",
+    "runtime-main.js": "/saved-property-list/static/js/runtime-main.10aba287.js",
+    "runtime-main.js.map": "/saved-property-list/static/js/runtime-main.10aba287.js.map",
+    "static/js/2.1eb9c822.chunk.js": "/saved-property-list/static/js/2.1eb9c822.chunk.js",
+    "static/js/2.1eb9c822.chunk.js.map": "/saved-property-list/static/js/2.1eb9c822.chunk.js.map",
+    "static/js/3.212787ef.chunk.js": "/saved-property-list/static/js/3.212787ef.chunk.js",
+    "static/js/3.212787ef.chunk.js.map": "/saved-property-list/static/js/3.212787ef.chunk.js.map",
+    "index.html": "/saved-property-list/index.html",
+    "static/css/main.ab7136cd.chunk.css.map": "/saved-property-list/static/css/main.ab7136cd.chunk.css.map",
+    "static/js/2.1eb9c822.chunk.js.LICENSE.txt": "/saved-property-list/static/js/2.1eb9c822.chunk.js.LICENSE.txt",
+    "static/media/logo.6ce24c58.svg": "/saved-property-list/static/media/logo.6ce24c58.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.10aba287.js",
+    "static/js/2.1eb9c822.chunk.js",
+    "static/css/main.ab7136cd.chunk.css",
+    "static/js/main.9e971ea4.chunk.js"
+  ]
+}
