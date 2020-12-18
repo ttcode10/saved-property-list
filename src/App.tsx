@@ -9,6 +9,7 @@ function App() {
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           First commit.
+          Github actions added.
         </p>
         <a
           className="App-link"
