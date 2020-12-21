@@ -1608,7 +1608,7 @@
     lodash "^4.17.15"
     redent "^3.0.0"
 
-"@testing-library/react@^11.1.0":
+"@testing-library/react@^11.2.2":
   version "11.2.2"
   resolved "https://registry.npm.taobao.org/@testing-library/react/download/@testing-library/react-11.2.2.tgz?cache=0&sync_timestamp=1605913926669&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40testing-library%2Freact%2Fdownload%2F%40testing-library%2Freact-11.2.2.tgz#099c6c195140ff069211143cb31c0f8337bdb7b7"
   integrity sha1-CZxsGVFA/waSERQ8sxwPgze9t7c=
