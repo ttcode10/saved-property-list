@@ -1,1 +1,1 @@
-export { color, fontFamily } from './themes';
+export { color, fontFamily, boxShadow } from './themes';
