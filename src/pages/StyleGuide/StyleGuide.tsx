@@ -9,6 +9,7 @@ import {
   P3Text,
   Button,
   Card,
+  Header,
 } from '../../components';
 
 const Wrapper = styled.div`
@@ -19,6 +20,7 @@ const Wrapper = styled.div`
 const StyleGuide: React.FC<Record<string, unknown>> = () => {
   return (
     <>
+      <Header />
       <H1Text>Style Guide Page</H1Text>
       <H1Text>H1 Text</H1Text>
       <H2Text>H2 Text</H2Text>
