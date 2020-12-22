@@ -1,1 +1,1 @@
-export { default } from "./color";
+export { color, fontFamily } from './themes';
