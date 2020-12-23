@@ -24,7 +24,7 @@ const MenuItem = styled(Link)`
   }
 `;
 
-const Header: React.FC<Record<string, unknown>> = () => (
+const Header: React.FC = () => (
   <Container>
     <MenuItem to="/">
       <H1Text>MyProperty.com</H1Text>
