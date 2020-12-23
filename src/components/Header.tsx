@@ -5,13 +5,19 @@ import { color } from '../themes';
 import { H1Text, P2Text } from './Typography';
 
 const Container = styled.div`
+  background-color: ${color.greySecondary};
   height: 3.125rem;
+  box-sizing: border-box;
+`;
+
+const Content = styled.div`
   display: flex;
   flex: 1;
-  background-color: ${color.greySecondary};
   justify-content: flex-start;
   align-items: center;
-  padding: 0.125rem 12.5rem;
+  box-sizing: border-box;
+  width: 1024px;
+  margin: 0 auto;
 `;
 
 const MenuItem = styled(Link)`
@@ -26,15 +32,17 @@ const MenuItem = styled(Link)`
 
 const Header: React.FC = () => (
   <Container>
-    <MenuItem to="/">
-      <H1Text>MyProperty.com</H1Text>
-    </MenuItem>
-    <MenuItem to="/">
-      <P2Text>Home</P2Text>
-    </MenuItem>
-    <MenuItem to="/styleguide">
-      <P2Text>Style Guide</P2Text>
-    </MenuItem>
+    <Content>
+      <MenuItem to="/">
+        <H1Text>MyProperty.com</H1Text>
+      </MenuItem>
+      <MenuItem to="/">
+        <P2Text>Home</P2Text>
+      </MenuItem>
+      <MenuItem to="/styleguide">
+        <P2Text>Style Guide</P2Text>
+      </MenuItem>
+    </Content>
   </Container>
 );
 

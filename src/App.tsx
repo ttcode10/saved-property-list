@@ -6,7 +6,8 @@ import StyleGuide from './pages/StyleGuide/StyleGuide';
 import { Header } from './components';
 
 const Container = styled.div`
-  padding: 0 12.5rem;
+  width: 1024px;
+  margin: 0 auto;
 `;
 
 const App: React.FC = () => {
