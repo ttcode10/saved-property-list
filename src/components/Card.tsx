@@ -10,7 +10,6 @@ const Card = styled.div`
   border-radius: 0.1875rem;
   width: 100%;
   height: 100%;
-  cursor: pointer;
 `;
 
 export default Card;

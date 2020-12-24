@@ -7,5 +7,6 @@ module.exports = {
         moduleDirectory: ['node_modules', 'src/'],
       },
     },
-  }
+  },
+  plugins: ['only-warn'],
 };
