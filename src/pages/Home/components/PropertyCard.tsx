@@ -22,10 +22,10 @@ const LogoImage = styled.div<{ logoUrl: string }>`
   margin: 8px;
 `;
 
-const PropertyImage = styled.div<{ propertyImageUrl: string }>`
+const PropertyImage = styled.div<{ propertyImageUrl: string, largeSize: boolean }>`
   background: url(${(props) => props.propertyImageUrl}) no-repeat center/cover;
   width: 100%;
-  height: 150px;
+  height: ${(props) => props.largeSize ? '540px' : '150px'};
 `;
 
 const Footer = styled.div`
@@ -37,11 +37,11 @@ const Footer = styled.div`
 `;
 
 const Price = styled(H2Text)`
-  margin: 8px;
+margin: 8px;
 `;
 
 const AddButton = styled(Button)`
-  margin: 8px;
+margin: 8px;
 `;
 
 interface IProps {
@@ -49,16 +49,17 @@ interface IProps {
   logoUrl: string;
   propertyImageUrl: string;
   price: string;
-}
+  largeSize: boolean;
+};
 
-const PropertyCard: React.FC<IProps> = ({ agencyBrandingColor, logoUrl, propertyImageUrl, price }) => {
+const PropertyCard: React.FC<IProps> = ({ agencyBrandingColor, logoUrl, propertyImageUrl, price, largeSize }) => {
   return (
     <Card>
       <Container>
         <Header agencyBrandingColor={agencyBrandingColor}>
           <LogoImage logoUrl={logoUrl} />
         </Header>
-        <PropertyImage propertyImageUrl={propertyImageUrl} />
+        <PropertyImage propertyImageUrl={propertyImageUrl} largeSize={largeSize} />
         <Footer>
           <Price>{price}</Price>
           <AddButton>Save</AddButton>
