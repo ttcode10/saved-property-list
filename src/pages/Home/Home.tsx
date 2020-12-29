@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import { Card, H2Text } from '../../components';
+import { H2Text } from '../../components';
 import PropertyCard from './components';
 import { getData, propertiesUrl } from '../../apis/utils';
 
@@ -59,6 +59,7 @@ const Home: React.FC = () => {
     };
     id: string;
     mainImage: string;
+    largeSize: boolean;
   }
 
   return (
@@ -74,18 +75,25 @@ const Home: React.FC = () => {
                 logoUrl={item.agency.logo}
                 propertyImageUrl={item.mainImage}
                 price={item.price}
+                largeSize={false}
               />
             </ResultListItem>
             ))}
         </Left>
         <Right>
           <H2Text>Saved Properties</H2Text>
-          <SavedListItem>
-            <Card />
-          </SavedListItem>
-          <SavedListItem>
-            <Card />
-          </SavedListItem>
+          {(saved || []).map((item: IResult) => (
+            <SavedListItem>
+              <PropertyCard
+                key={item.id}
+                agencyBrandingColor={item.agency.brandingColors.primary}
+                logoUrl={item.agency.logo}
+                propertyImageUrl={item.mainImage}
+                price={item.price}
+                largeSize={true}
+              />
+            </SavedListItem>
+          ))}
         </Right>
       </Container>
     </>
