@@ -57,6 +57,7 @@ interface IProps {
   propertyImageUrl: string;
   price: string;
   imageSize: ImageSize;
+  buttonText: ButtonText
 };
 
 enum ImageSize {
@@ -64,7 +65,12 @@ enum ImageSize {
   small = 'small',
 }
 
-const PropertyCard: React.FC<IProps> = ({ agencyBrandingColor, logoUrl, propertyImageUrl, price, imageSize }) => {
+enum ButtonText {
+  save = 'Save',
+  remove = 'Remove',
+}
+
+const PropertyCard: React.FC<IProps> = ({ agencyBrandingColor, logoUrl, propertyImageUrl, price, imageSize, buttonText }) => {
   return (
     <Card>
       <Container>
@@ -74,7 +80,7 @@ const PropertyCard: React.FC<IProps> = ({ agencyBrandingColor, logoUrl, property
         <PropertyImage propertyImageUrl={propertyImageUrl} imageSize={imageSize} />
         <Footer>
           <Price>{price}</Price>
-          <AddButton>Save</AddButton>
+          <AddButton>{buttonText}</AddButton>
         </Footer>
       </Container>
     </Card>

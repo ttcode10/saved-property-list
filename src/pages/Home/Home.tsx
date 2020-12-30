@@ -32,6 +32,28 @@ const SavedListItem = styled.div`
   }
 `;
 
+interface IResult {
+  price: string;
+  agency: {
+    brandingColors: {
+      primary: string;
+    };
+    logo: string;
+  };
+  id: string;
+  mainImage: string;
+}
+
+enum ImageSize {
+  large = 'large',
+  small = 'small',
+}
+
+enum ButtonText {
+  save = 'Save',
+  remove = 'Remove',
+}
+
 const Home: React.FC = () => {
   const [results, setResults] = useState(null);
   const [saved, setSaved] = useState(null);
@@ -49,23 +71,6 @@ const Home: React.FC = () => {
   useEffect(() => {
     console.log(results, saved);
   }, [results, saved]);
-  interface IResult {
-    price: string;
-    agency: {
-      brandingColors: {
-        primary: string;
-      };
-      logo: string;
-    };
-    id: string;
-    mainImage: string;
-    imageSize: ImageSize;
-  }
-
-  enum ImageSize {
-    large = 'large',
-    small = 'small',
-  }
 
   return (
     <>
@@ -81,6 +86,7 @@ const Home: React.FC = () => {
                 propertyImageUrl={item.mainImage}
                 price={item.price}
                 imageSize={ImageSize.small}
+                buttonText={ButtonText.save}
               />
             </ResultListItem>
             ))}
@@ -96,6 +102,7 @@ const Home: React.FC = () => {
                 propertyImageUrl={item.mainImage}
                 price={item.price}
                 imageSize={ImageSize.large}
+                buttonText={ButtonText.remove}
               />
             </SavedListItem>
           ))}
