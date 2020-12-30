@@ -59,7 +59,12 @@ const Home: React.FC = () => {
     };
     id: string;
     mainImage: string;
-    largeSize: boolean;
+    imageSize: ImageSize;
+  }
+
+  enum ImageSize {
+    large = 'large',
+    small = 'small',
   }
 
   return (
@@ -75,7 +80,7 @@ const Home: React.FC = () => {
                 logoUrl={item.agency.logo}
                 propertyImageUrl={item.mainImage}
                 price={item.price}
-                largeSize={false}
+                imageSize={ImageSize.small}
               />
             </ResultListItem>
             ))}
@@ -90,7 +95,7 @@ const Home: React.FC = () => {
                 logoUrl={item.agency.logo}
                 propertyImageUrl={item.mainImage}
                 price={item.price}
-                largeSize={true}
+                imageSize={ImageSize.large}
               />
             </SavedListItem>
           ))}

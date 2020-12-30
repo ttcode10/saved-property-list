@@ -22,10 +22,10 @@ const LogoImage = styled.div<{ logoUrl: string }>`
   margin: 8px;
 `;
 
-const PropertyImage = styled.div<{ propertyImageUrl: string, largeSize: boolean }>`
+const PropertyImage = styled.div<{ propertyImageUrl: string, imageSize: ImageSize }>`
   background: url(${(props) => props.propertyImageUrl}) no-repeat center/cover;
   width: 100%;
-  height: ${(props) => props.largeSize ? '540px' : '150px'};
+  height: ${(props) => imageSizeMapping(props.imageSize)};
 `;
 
 const Footer = styled.div`
@@ -44,22 +44,34 @@ const AddButton = styled(Button)`
 margin: 8px;
 `;
 
+const imageSizeMapping = (imageSize: ImageSize): string => {
+  return {
+    large: '540px',
+    small: '150px',
+  }[imageSize]
+}
+
 interface IProps {
   agencyBrandingColor: string;
   logoUrl: string;
   propertyImageUrl: string;
   price: string;
-  largeSize: boolean;
+  imageSize: ImageSize;
 };
 
-const PropertyCard: React.FC<IProps> = ({ agencyBrandingColor, logoUrl, propertyImageUrl, price, largeSize }) => {
+enum ImageSize {
+  large = 'large',
+  small = 'small',
+}
+
+const PropertyCard: React.FC<IProps> = ({ agencyBrandingColor, logoUrl, propertyImageUrl, price, imageSize }) => {
   return (
     <Card>
       <Container>
         <Header agencyBrandingColor={agencyBrandingColor}>
           <LogoImage logoUrl={logoUrl} />
         </Header>
-        <PropertyImage propertyImageUrl={propertyImageUrl} largeSize={largeSize} />
+        <PropertyImage propertyImageUrl={propertyImageUrl} imageSize={imageSize} />
         <Footer>
           <Price>{price}</Price>
           <AddButton>Save</AddButton>
