@@ -40,7 +40,7 @@ const Price = styled(H2Text)`
 margin: 8px;
 `;
 
-const AddButton = styled(Button)`
+const ActionButton = styled(Button)`
 margin: 8px;
 `;
 
@@ -52,12 +52,15 @@ const imageSizeMapping = (imageSize: ImageSize): string => {
 }
 
 interface IProps {
+  key: string;
   agencyBrandingColor: string;
   logoUrl: string;
   propertyImageUrl: string;
   price: string;
   imageSize: ImageSize;
-  buttonText: ButtonText
+  buttonText: ButtonText;
+  handleClick: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
+  itemId: string;
 };
 
 enum ImageSize {
@@ -70,7 +73,16 @@ enum ButtonText {
   remove = 'Remove',
 }
 
-const PropertyCard: React.FC<IProps> = ({ agencyBrandingColor, logoUrl, propertyImageUrl, price, imageSize, buttonText }) => {
+const PropertyCard: React.FC<IProps> = ({
+  agencyBrandingColor,
+  logoUrl,
+  propertyImageUrl,
+  price,
+  imageSize,
+  buttonText,
+  handleClick,
+  itemId,
+}) => {
   return (
     <Card>
       <Container>
@@ -80,7 +92,7 @@ const PropertyCard: React.FC<IProps> = ({ agencyBrandingColor, logoUrl, property
         <PropertyImage propertyImageUrl={propertyImageUrl} imageSize={imageSize} />
         <Footer>
           <Price>{price}</Price>
-          <AddButton>{buttonText}</AddButton>
+          <ActionButton onClick={handleClick} data-index={itemId}>{buttonText}</ActionButton>
         </Footer>
       </Container>
     </Card>
