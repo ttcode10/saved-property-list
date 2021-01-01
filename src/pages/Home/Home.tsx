@@ -55,29 +55,29 @@ enum ButtonText {
 }
 
 const Home: React.FC = () => {
-  const [results, setResults] = useState(null);
-  const [saved, setSaved] = useState(null);
+  const [resultList, setResultList] = useState<IResult[]>([]);
+  const [savedList, setSavedList] = useState<IResult[]>([]);
 
-  const getProperties = async () => {
+  const getInitProperties = async () => {
     const data = await getData(propertiesUrl);
-    setResults(data?.results);
-    setSaved(data?.saved);
+    setResultList(data.results);
+    setSavedList(data.saved);
   };
 
   useEffect(() => {
-    getProperties();
+    getInitProperties();
   }, []);
 
   useEffect(() => {
-    console.log(results, saved);
-  }, [results, saved]);
+    console.log(resultList, savedList);
+  }, [resultList, savedList]);
 
   return (
     <>
       <Container>
         <Left>
-          <H2Text>Results</H2Text>
-          {(results || []).map((item: IResult) => (
+          <H2Text>ResultList</H2Text>
+          {resultList?.map((item: IResult) => (
             <ResultListItem>
               <PropertyCard
                 key={item.id}
@@ -87,13 +87,15 @@ const Home: React.FC = () => {
                 price={item.price}
                 imageSize={ImageSize.small}
                 buttonText={ButtonText.save}
+                handleClick={addItemToSavedList}
+                itemId={item.id}
               />
             </ResultListItem>
-            ))}
+          ))}
         </Left>
         <Right>
           <H2Text>Saved Properties</H2Text>
-          {(saved || []).map((item: IResult) => (
+          {savedList?.map((item: IResult) => (
             <SavedListItem>
               <PropertyCard
                 key={item.id}
@@ -103,6 +105,8 @@ const Home: React.FC = () => {
                 price={item.price}
                 imageSize={ImageSize.large}
                 buttonText={ButtonText.remove}
+                handleClick={removeItemFromSavedList}
+                itemId={item.id}
               />
             </SavedListItem>
           ))}
