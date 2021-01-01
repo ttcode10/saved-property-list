@@ -22,7 +22,10 @@ const LogoImage = styled.div<{ logoUrl: string }>`
   margin: 8px;
 `;
 
-const PropertyImage = styled.div<{ propertyImageUrl: string, imageSize: ImageSize }>`
+const PropertyImage = styled.div<{
+  propertyImageUrl: string;
+  imageSize: ImageSize;
+}>`
   background: url(${(props) => props.propertyImageUrl}) no-repeat center/cover;
   width: 100%;
   height: ${(props) => imageSizeMapping(props.imageSize)};
@@ -37,19 +40,19 @@ const Footer = styled.div`
 `;
 
 const Price = styled(H2Text)`
-margin: 8px;
+  margin: 8px;
 `;
 
 const ActionButton = styled(Button)`
-margin: 8px;
+  margin: 8px;
 `;
 
 const imageSizeMapping = (imageSize: ImageSize): string => {
   return {
     large: '540px',
     small: '150px',
-  }[imageSize]
-}
+  }[imageSize];
+};
 
 interface IProps {
   key: string;
@@ -61,7 +64,7 @@ interface IProps {
   buttonText: ButtonText;
   handleClick: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
   itemId: string;
-};
+}
 
 enum ImageSize {
   large = 'large',
@@ -89,10 +92,15 @@ const PropertyCard: React.FC<IProps> = ({
         <Header agencyBrandingColor={agencyBrandingColor}>
           <LogoImage logoUrl={logoUrl} />
         </Header>
-        <PropertyImage propertyImageUrl={propertyImageUrl} imageSize={imageSize} />
+        <PropertyImage
+          propertyImageUrl={propertyImageUrl}
+          imageSize={imageSize}
+        />
         <Footer>
           <Price>{price}</Price>
-          <ActionButton onClick={handleClick} data-index={itemId}>{buttonText}</ActionButton>
+          <ActionButton onClick={handleClick} data-index={itemId}>
+            {buttonText}
+          </ActionButton>
         </Footer>
       </Container>
     </Card>
