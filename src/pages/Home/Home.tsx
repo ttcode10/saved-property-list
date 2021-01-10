@@ -4,56 +4,6 @@ import { H1Text } from '../../components';
 import PropertyCard from './components';
 import { getData, propertiesUrl } from '../../apis/utils';
 
-const Container = styled.div`
-  display: flex;
-`;
-
-const Left = styled.div`
-  width: 30%;
-`;
-
-const Right = styled.div`
-  width: 70%;
-`;
-
-const ResultListItem = styled.div`
-  width: 300px;
-  height: 250px;
-  & ~ & {
-    margin-top: 1rem;
-  }
-`;
-
-const SavedListItem = styled.div`
-  width: 640px;
-  height: 640px;
-  & ~ & {
-    margin-top: 1rem;
-  }
-`;
-
-interface IResult {
-  price: string;
-  agency: {
-    brandingColors: {
-      primary: string;
-    };
-    logo: string;
-  };
-  id: string;
-  mainImage: string;
-}
-
-enum ImageSize {
-  large = 'large',
-  small = 'small',
-}
-
-enum ButtonText {
-  save = 'Save',
-  remove = 'Remove',
-}
-
 const Home: React.FC = () => {
   const [resultList, setResultList] = useState<IResult[]>([]);
   const [savedList, setSavedList] = useState<IResult[]>([]);
@@ -144,3 +94,53 @@ const Home: React.FC = () => {
 };
 
 export default Home;
+
+interface IResult {
+  price: string;
+  agency: {
+    brandingColors: {
+      primary: string;
+    };
+    logo: string;
+  };
+  id: string;
+  mainImage: string;
+}
+
+enum ImageSize {
+  large = 'large',
+  small = 'small',
+}
+
+enum ButtonText {
+  save = 'Save',
+  remove = 'Remove',
+}
+
+const Container = styled.div`
+  display: flex;
+`;
+
+const Left = styled.div`
+  width: 30%;
+`;
+
+const Right = styled.div`
+  width: 70%;
+`;
+
+const ResultListItem = styled.div`
+  width: 300px;
+  height: 250px;
+  & ~ & {
+    margin-top: 1rem;
+  }
+`;
+
+const SavedListItem = styled.div`
+  width: 640px;
+  height: 640px;
+  & ~ & {
+    margin-top: 1rem;
+  }
+`;

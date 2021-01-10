@@ -11,15 +11,6 @@ import {
   Card,
 } from '../../components';
 
-const Wrapper = styled.div`
-  width: 300px;
-  height: 200px;
-`;
-
-const CardItem = styled(Card)`
-  overflow-y: auto;
-`;
-
 const StyleGuide: React.FC = () => {
   return (
     <>
@@ -40,3 +31,12 @@ const StyleGuide: React.FC = () => {
 };
 
 export default StyleGuide;
+
+const Wrapper = styled.div`
+  width: 300px;
+  height: 200px;
+`;
+
+const CardItem = styled(Card)`
+  overflow-y: auto;
+`;
