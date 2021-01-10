@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import { H2Text } from '../../components';
+import { H1Text } from '../../components';
 import PropertyCard from './components';
 import { getData, propertiesUrl } from '../../apis/utils';
 
@@ -68,15 +68,39 @@ const Home: React.FC = () => {
     getInitProperties();
   }, []);
 
-  useEffect(() => {
-    console.log(resultList, savedList);
-  }, [resultList, savedList]);
+  const addItemToSavedList = (
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>,
+  ): void => {
+    const target = e.target as HTMLButtonElement;
+    const itemId = target.getAttribute('data-index');
+    const itemToSave = resultList.find((item) => item.id === itemId);
+    if (itemToSave) {
+      setSavedList([...savedList, itemToSave]);
+    } else {
+      alert('Something goes wrong, please try again later');
+    }
+  };
+
+  const removeItemFromSavedList = (
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>,
+  ): void => {
+    const target = e.target as HTMLButtonElement;
+    const itemId = target.getAttribute('data-index');
+    const itemToRemove = savedList.find((item) => item.id === itemId);
+    if (itemToRemove) {
+      const newSavedList = (prevState: IResult[]) =>
+        prevState.filter((item) => item.id !== itemId);
+      setSavedList(newSavedList);
+    } else {
+      alert('Something goes wrong, please try again later');
+    }
+  };
 
   return (
     <>
       <Container>
-        <Left>
-          <H2Text>ResultList</H2Text>
+        <Left data-testid="result-card">
+          <H1Text>Result List</H1Text>
           {resultList?.map((item: IResult) => (
             <ResultListItem>
               <PropertyCard
@@ -93,8 +117,8 @@ const Home: React.FC = () => {
             </ResultListItem>
           ))}
         </Left>
-        <Right>
-          <H2Text>Saved Properties</H2Text>
+        <Right data-testid="saved-card">
+          <H1Text>Saved Properties</H1Text>
           {savedList?.map((item: IResult) => (
             <SavedListItem>
               <PropertyCard
