@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Card, H2Text, Button } from '../../../components';
 import { color } from '../../../themes';
@@ -64,6 +64,7 @@ interface IProps {
   buttonText: ButtonText;
   handleClick: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
   itemId: string;
+  buttonDisabled?: boolean;
 }
 
 enum ImageSize {
@@ -85,10 +86,23 @@ const PropertyCard: React.FC<IProps> = ({
   buttonText,
   handleClick,
   itemId,
+  buttonDisabled,
 }) => {
+  const [buttonShow, setButtonShow] = useState(false);
+
+  const handleMouseEnter = () => {
+    setButtonShow(true);
+  };
+
+  const handleMouseLeave = () => {
+    setButtonShow(false);
+  };
+
   return (
     <Card>
-      <Container>
+      <Container
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}>
         <Header agencyBrandingColor={agencyBrandingColor}>
           <LogoImage logoUrl={logoUrl} />
         </Header>
@@ -98,9 +112,14 @@ const PropertyCard: React.FC<IProps> = ({
         />
         <Footer>
           <Price>{price}</Price>
-          <ActionButton onClick={handleClick} data-index={itemId}>
-            {buttonText}
-          </ActionButton>
+          {buttonShow && (
+            <ActionButton
+              onClick={handleClick}
+              data-index={itemId}
+              disabled={buttonDisabled}>
+              {buttonText}
+            </ActionButton>
+          )}
         </Footer>
       </Container>
     </Card>

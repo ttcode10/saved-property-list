@@ -57,6 +57,7 @@ enum ButtonText {
 const Home: React.FC = () => {
   const [resultList, setResultList] = useState<IResult[]>([]);
   const [savedList, setSavedList] = useState<IResult[]>([]);
+  const [savedIds, setSavedIds] = useState<string[]>([]);
 
   const getInitProperties = async () => {
     const data = await getData(propertiesUrl);
@@ -76,6 +77,7 @@ const Home: React.FC = () => {
     const itemToSave = resultList.find((item) => item.id === itemId);
     if (itemToSave) {
       setSavedList([...savedList, itemToSave]);
+      itemId && setSavedIds((prevState) => [...prevState, itemId]);
     } else {
       alert('Something goes wrong, please try again later');
     }
@@ -88,9 +90,9 @@ const Home: React.FC = () => {
     const itemId = target.getAttribute('data-index');
     const itemToRemove = savedList.find((item) => item.id === itemId);
     if (itemToRemove) {
-      const newSavedList = (prevState: IResult[]) =>
-        prevState.filter((item) => item.id !== itemId);
+      const newSavedList = savedList.filter((item) => item.id !== itemId);
       setSavedList(newSavedList);
+      setSavedIds(newSavedList.map((item) => item.id));
     } else {
       alert('Something goes wrong, please try again later');
     }
@@ -113,6 +115,7 @@ const Home: React.FC = () => {
                 buttonText={ButtonText.save}
                 handleClick={addItemToSavedList}
                 itemId={item.id}
+                buttonDisabled={savedIds.includes(item.id)}
               />
             </ResultListItem>
           ))}

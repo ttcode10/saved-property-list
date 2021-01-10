@@ -11,7 +11,7 @@ const Button = styled.button`
   border: 1px solid ${color.border};
   background: none;
   padding: 0.5rem;
-  cursor: pointer;
+  cursor: ${(props) => (props.disabled ? 'not-allowed' : 'pointer')};
   outline: 0;
 
   &:hover {
