@@ -33,10 +33,10 @@ const MenuItem = styled(Link)`
 const Header: React.FC = () => (
   <Container>
     <Content>
-      <MenuItem to="/">
+      <MenuItem to="/home">
         <H1Text>MyProperty.com</H1Text>
       </MenuItem>
-      <MenuItem to="/">
+      <MenuItem to="/home">
         <P2Text>Home</P2Text>
       </MenuItem>
       <MenuItem to="/styleguide">

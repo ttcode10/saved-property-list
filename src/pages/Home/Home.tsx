@@ -51,10 +51,10 @@ const Home: React.FC = () => {
   return (
     <>
       <Container>
-        <Left data-testid="result-card">
+        <Left data-testid="result-column">
           <H1Text>Result List</H1Text>
           {resultList?.map((item: IResult) => (
-            <ResultListItem>
+            <ResultListItem data-testid="result-list">
               <PropertyCard
                 key={item.id}
                 agencyBrandingColor={item.agency.brandingColors.primary}
@@ -70,10 +70,10 @@ const Home: React.FC = () => {
             </ResultListItem>
           ))}
         </Left>
-        <Right data-testid="saved-card">
+        <Right data-testid="saved-column">
           <H1Text>Saved Properties</H1Text>
           {savedList?.map((item: IResult) => (
-            <SavedListItem>
+            <SavedListItem data-testid="saved-list">
               <PropertyCard
                 key={item.id}
                 agencyBrandingColor={item.agency.brandingColors.primary}

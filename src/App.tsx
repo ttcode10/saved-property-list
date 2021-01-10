@@ -17,7 +17,7 @@ const App: React.FC = () => {
         <Header />
         <Container>
           <Switch>
-            <Route path="/" exact component={Home} />
+            <Route path="/home" exact component={Home} />
             <Route path="/styleguide" exact component={StyleGuide} />
             <Route path="/*" component={Home} />
           </Switch>
