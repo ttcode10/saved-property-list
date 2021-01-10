@@ -1,3 +1,6 @@
+# Live preview
+https://ttcode10.github.io/saved-property-list/
+
 # How to run the project
 
 Input the following script in the console:
@@ -7,45 +10,44 @@ Input the following script in the console:
 3. yarn test
 
 # File Structure
-
-.
-+-- apis
-|   +-- utils
-|       +-- index.ts
-|       +-- axios.ts
-|       +-- urls.ts
-+-- components
-|   +-- index.ts
-|   +-- Button.tsx
-|   +-- Card.tsx
-|   +-- Header.tsx
-|   +-- Typography.tsx
-|   +-- __test__
-+-- pages
-|   +-- index.ts
-|   +-- Home
-|       +-- index.ts
-|       +-- Home.tsx
-|       +-- components
-|           +-- index.ts
-|           +-- PropertyCard.tsx
-|       +-- __test__
-|   +-- StyleGuide
-|       +-- index.ts
-|       +-- StyleGuide.tsx
-+-- themes
-|   +-- index.ts
-|   +-- themes.ts
-+-- App.tsx
-+-- index.tsx
-+-- index.css
+* [apis/](./src/apis)
+  * [utils/](./src/apis/utils)
+    * [axios.ts](./src/apis/utils/axios.ts)
+    * [index.ts](./src/apis/utils/index.ts)
+    * [urls.ts](./src/apis/utils/urls.ts)
+* [components/](./src/components)
+  * [__test__/](./src/components/__test__)
+    * [Header.test.tsx](./src/components/__test__/Header.test.tsx)
+  * [Button.tsx](./src/components/Button.tsx)
+  * [Card.tsx](./src/components/Card.tsx)
+  * [Header.tsx](./src/components/Header.tsx)
+  * [Typography.tsx](./src/components/Typography.tsx)
+  * [index.ts](./src/components/index.ts)
+* [pages/](./src/pages)
+  * [Home/](./src/pages/Home)
+    * [__test__/](./src/pages/Home/__test__)
+      * [Home.test.tsx](./src/pages/Home/__test__/Home.test.tsx)
+    * [components/](./src/pages/Home/components)
+      * [PropertyCard.tsx](./src/pages/Home/components/PropertyCard.tsx)
+      * [index.ts](./src/pages/Home/components/index.ts)
+    * [Home.tsx](./src/pages/Home/Home.tsx)
+    * [index.ts](./src/pages/Home/index.ts)
+  * [StyleGuide/](./src/pages/StyleGuide)
+    * [StyleGuide.tsx](./src/pages/StyleGuide/StyleGuide.tsx)
+    * [index.ts](./src/pages/StyleGuide/index.ts)
+* [themes/](./src/themes)
+  * [index.ts](./src/themes/index.ts)
+  * [themes.ts](./src/themes/themes.ts)
+* [App.tsx](./src/App.tsx)
+* [index.css](./src/index.css)
+* [index.tsx](./src/index.tsx)
 
 # Development Iteration
 
 I followed these steps to iterate the app:
 
-## [Iteration 0] Development Environment Setup
-Setup the development environment, including init create-react-app, added styled-components, eslint, prettier.
+## [Iteration 0] Setup development environment and CI/CD pipeline
+Setup the development environment, including init create-react-app, added styled-components, eslint, prettier. Built CI/CD pipeline with Github Pages
 
 ## [Iteration 0] Global themes
 

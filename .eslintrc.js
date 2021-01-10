@@ -3,6 +3,8 @@ module.exports = {
   rules: {
     'no-use-before-define': 'off',
     '@typescript-eslint/no-use-before-define': ['off'],
+    'no-alert': 'off',
+    'no-unused-expressions': 'off',
   },
   settings: {
     'import/resolver': {
