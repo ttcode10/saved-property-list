@@ -1,46 +1,67 @@
-# Getting Started with Create React App
+# How to run the project
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Input the following script in the console:
 
-## Available Scripts
+1. yarn
+2. yarn start
+3. yarn test
 
-In the project directory, you can run:
+# File Structure
 
-### `yarn start`
+.
++-- apis
+|   +-- utils
+|       +-- index.ts
+|       +-- axios.ts
+|       +-- urls.ts
++-- components
+|   +-- index.ts
+|   +-- Button.tsx
+|   +-- Card.tsx
+|   +-- Header.tsx
+|   +-- Typography.tsx
+|   +-- __test__
++-- pages
+|   +-- index.ts
+|   +-- Home
+|       +-- index.ts
+|       +-- Home.tsx
+|       +-- components
+|           +-- index.ts
+|           +-- PropertyCard.tsx
+|       +-- __test__
+|   +-- StyleGuide
+|       +-- index.ts
+|       +-- StyleGuide.tsx
++-- themes
+|   +-- index.ts
+|   +-- themes.ts
++-- App.tsx
++-- index.tsx
++-- index.css
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+# Development Iteration
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+I followed these steps to iterate the app:
 
-### `yarn test`
+## [Iteration 0] Development Environment Setup
+Setup the development environment, including init create-react-app, added styled-components, eslint, prettier.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## [Iteration 0] Global themes
 
-### `yarn build`
+Set basic theme elements for global usage, including colors, font-family, box-shadow, promoting consistent styles across the app.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## [Iteration 1] Public Components
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Built global components with styled-components: Button, Card, Header, Typography. Examined how they looked in StyleGuide page.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## [Iteration 2] Page-scoped components
 
-### `yarn eject`
+Integrated basic components into a more complicated component (PropertyCard.tsx) for Homepage.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## [Iteration 3] Page Integration
+Formed Homepage with all components and added click functions for save/remove items, hover, disable behaviours.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## [Iteration 3] Testing
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+Added testing script to check if all the core elements are correctly rendered and performed.
