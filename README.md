@@ -7,7 +7,7 @@ Input the following script in the console:
 
 1. yarn
 2. yarn start
-3. yarn test
+3. yarn coverage
 
 # File Structure
 * [apis/](./src/apis)
