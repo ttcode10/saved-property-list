@@ -19,28 +19,20 @@ const Home: React.FC = () => {
     getInitProperties();
   }, []);
 
-  const addItemToSavedList = (
-    e: React.MouseEvent<HTMLButtonElement, MouseEvent>,
-  ): void => {
-    const target = e.target as HTMLButtonElement;
-    const itemId = target.getAttribute('data-index');
-    const itemToSave = resultList.find((item) => item.id === itemId);
-    if (itemToSave) {
-      setSavedList([...savedList, itemToSave]);
-      itemId && setSavedIds((prevState) => [...prevState, itemId]);
+  const addItemToSavedList = (item: IResult): void => {
+    const itemToAdd = resultList.find((resultItem) => resultItem.id === item.id);
+    if (itemToAdd) {
+      setSavedList([...savedList, itemToAdd]);
+      setSavedIds((prevState) => [...prevState, itemToAdd.id]);
     } else {
       alert('Something goes wrong, please try again later');
     }
   };
 
-  const removeItemFromSavedList = (
-    e: React.MouseEvent<HTMLButtonElement, MouseEvent>,
-  ): void => {
-    const target = e.target as HTMLButtonElement;
-    const itemId = target.getAttribute('data-index');
-    const itemToRemove = savedList.find((item) => item.id === itemId);
+  const removeItemFromSavedList = (item: IResult): void => {
+    const itemToRemove = savedList.find((savedItem) => savedItem.id === item.id);
     if (itemToRemove) {
-      const newSavedList = savedList.filter((item) => item.id !== itemId);
+      const newSavedList = savedList.filter((savedItem) => savedItem.id !== item.id);
       setSavedList(newSavedList);
       setSavedIds(newSavedList.map((item) => item.id));
     } else {
@@ -61,10 +53,9 @@ const Home: React.FC = () => {
                 logoUrl={item.agency.logo}
                 propertyImageUrl={item.mainImage}
                 price={item.price}
-                imageSize={ImageSize.small}
-                buttonText={ButtonText.save}
-                handleClick={addItemToSavedList}
-                itemId={item.id}
+                imageSize={ImageSize.Small}
+                buttonText={ButtonText.Save}
+                handleClick={() => addItemToSavedList(item)}
                 buttonDisabled={savedIds.includes(item.id)}
               />
             </ResultListItem>
@@ -80,10 +71,9 @@ const Home: React.FC = () => {
                 logoUrl={item.agency.logo}
                 propertyImageUrl={item.mainImage}
                 price={item.price}
-                imageSize={ImageSize.large}
-                buttonText={ButtonText.remove}
-                handleClick={removeItemFromSavedList}
-                itemId={item.id}
+                imageSize={ImageSize.Large}
+                buttonText={ButtonText.Remove}
+                handleClick={() => removeItemFromSavedList(item)}
               />
             </SavedListItem>
           ))}
@@ -108,13 +98,13 @@ interface IResult {
 }
 
 enum ImageSize {
-  large = 'large',
-  small = 'small',
+  Large = 'large',
+  Small = 'small',
 }
 
 enum ButtonText {
-  save = 'Save',
-  remove = 'Remove',
+  Save = 'Save',
+  Remove = 'Remove',
 }
 
 const Container = styled.div`

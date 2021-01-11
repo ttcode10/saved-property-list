@@ -11,7 +11,6 @@ const PropertyCard: React.FC<IProps> = ({
   imageSize,
   buttonText,
   handleClick,
-  itemId,
   buttonDisabled,
 }) => {
   const [buttonShow, setButtonShow] = useState(false);
@@ -41,7 +40,6 @@ const PropertyCard: React.FC<IProps> = ({
           {buttonShow && (
             <ActionButton
               onClick={handleClick}
-              data-index={itemId}
               disabled={buttonDisabled}>
               {buttonText}
             </ActionButton>
@@ -63,18 +61,17 @@ interface IProps {
   imageSize: ImageSize;
   buttonText: ButtonText;
   handleClick: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
-  itemId: string;
   buttonDisabled?: boolean;
 }
 
 enum ImageSize {
-  large = 'large',
-  small = 'small',
+  Large = 'large',
+  Small = 'small',
 }
 
 enum ButtonText {
-  save = 'Save',
-  remove = 'Remove',
+  Save = 'Save',
+  Remove = 'Remove',
 }
 
 const Container = styled.div`
@@ -97,8 +94,8 @@ const LogoImage = styled.div<{ logoUrl: string }>`
 `;
 
 const PropertyImage = styled.div<{
-  propertyImageUrl: string;
-  imageSize: ImageSize;
+  propertyImageUrl: string,
+  imageSize: ImageSize
 }>`
   background: url(${(props) => props.propertyImageUrl}) no-repeat center/cover;
   width: 100%;
