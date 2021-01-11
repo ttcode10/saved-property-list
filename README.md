@@ -9,7 +9,7 @@ Input the following script in the console:
 2. yarn start
 3. yarn coverage
 
-# File Structure
+# File structure
 * [components/](./src/components)
   * [__test__/](./src/components/__test__)
     * [Header.test.tsx](./src/components/__test__/Header.test.tsx)
@@ -37,7 +37,7 @@ Input the following script in the console:
 * [index.css](./src/index.css)
 * [index.tsx](./src/index.tsx)
 
-# Development Iteration
+# Development iteration
 
 I followed these steps to iterate the app:
 
@@ -62,3 +62,7 @@ Formed Homepage with all components and added click functions for save/remove it
 ## [Iteration 3] Testing
 
 Added testing script to check if all the core elements are correctly rendered and performed.
+
+## [Iteration 4] Refactor
+
+Refactored and simplified codes.
