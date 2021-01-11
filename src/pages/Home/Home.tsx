@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { H1Text } from '../../components';
 import PropertyCard from './components';
-import { getData, propertiesUrl } from '../../apis/utils';
+import data from '../../data.json';
 
 const Home: React.FC = () => {
   const [resultList, setResultList] = useState<IResult[]>([]);
@@ -10,7 +10,6 @@ const Home: React.FC = () => {
   const [savedIds, setSavedIds] = useState<string[]>([]);
 
   const getInitProperties = async () => {
-    const data = await getData(propertiesUrl);
     setResultList(data.results);
     setSavedList(data.saved);
   };

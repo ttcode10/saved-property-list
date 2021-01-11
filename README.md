@@ -10,11 +10,6 @@ Input the following script in the console:
 3. yarn coverage
 
 # File Structure
-* [apis/](./src/apis)
-  * [utils/](./src/apis/utils)
-    * [axios.ts](./src/apis/utils/axios.ts)
-    * [index.ts](./src/apis/utils/index.ts)
-    * [urls.ts](./src/apis/utils/urls.ts)
 * [components/](./src/components)
   * [__test__/](./src/components/__test__)
     * [Header.test.tsx](./src/components/__test__/Header.test.tsx)
